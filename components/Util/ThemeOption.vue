@@ -45,7 +45,7 @@ watch(() => props.mousePosition, (newVal) => {
             class="text-7xl text-white" />
         <Icon name="fluent-emoji-high-contrast:crown" v-if="props.option === 'traditional'"
             class="text-7xl text-white" />
-        <p v-html="props.text" class="text-center text-xl text-white">
+        <p v-html="props.text" class="text-center text-md lg:text-xl text-white">
         </p>
     </NuxtLink>
 </template>
