@@ -3,12 +3,7 @@ const { query } = useRoute()
 const theme = query.theme ?? "modern&creative"
 
 
-useHead({
-    title: 'Nethsara | Home',
-    htmlAttrs: {
-        lang: 'en'
-    }
-})
+
 
 
 </script>
