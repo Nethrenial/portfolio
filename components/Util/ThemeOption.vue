@@ -1,11 +1,34 @@
 <script lang="ts" setup>
 
+import { ComponentPublicInstance } from 'vue'
+
 export interface ThemeOptionProps {
     option: "modern&creative" | "minimalist" | "traditional",
-    text: string
+    text: string,
+    mousePosition: { x: number, y: number }
 }
 
 const props = defineProps<ThemeOptionProps>()
+
+
+
+
+const optionCard = ref<ComponentPublicInstance | null>(null)
+
+watch(() => props.mousePosition, (newVal) => {
+    const mouseX = newVal.x
+    const mouseY = newVal.y
+    // if mouse is inside the card , add "hover:bg-[rgba(var(--light),0.1)]" class to the card
+    if (optionCard.value) {
+        const cardRect = optionCard.value.$el.getBoundingClientRect()
+        if (mouseX > cardRect.left - 200 && mouseX < cardRect.right + 200 && mouseY > cardRect.top - 200 && mouseY < cardRect.bottom + 200) {
+            optionCard.value.$el.classList.add('bg-[rgba(var(--light),0.06)]')
+        } else {
+            optionCard.value.$el.classList.remove('bg-[rgba(var(--light),0.06)]')
+        }
+    }
+})
+
 
 </script>
 
@@ -15,7 +38,8 @@ const props = defineProps<ThemeOptionProps>()
     query: {
         theme: props.option
     }
-}" class="theme-option flex flex-col gap-8 items-center justify-center py-8 cursor-pointer transition-all duration-100 ease-in-out bg-[rgba(var(--light),0.02)] hover:bg-[rgba(var(--light),0.1)] hover:bg rounded-xl text-white">
+}" ref="optionCard"
+        class="theme-option flex flex-col gap-8 items-center justify-center py-8 cursor-pointer transition-all duration-400 ease-in-out bg-[rgba(var(--light),0.02)] hover:bg-[rgba(var(--light),0.1)] hover:bg rounded-xl text-white">
         <Icon name="mdi:lightbulb-on-outline" v-if="props.option === 'modern&creative'" class="text-7xl text-white" />
         <Icon name="material-symbols:square-outline-rounded" v-if="props.option === 'minimalist'"
             class="text-7xl text-white" />

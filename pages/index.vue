@@ -14,7 +14,7 @@ useHead({
 })
 
 
-const themeOptions: ThemeOptionProps[] = [
+const themeOptions: (Partial<ThemeOptionProps> & { option: string, text: string })[] = [
     {
         option: 'modern&creative'
         , text: `I'm a visionary<br> <span style="font-size: 1.75rem">Modern & Creative</span>`
@@ -63,7 +63,8 @@ onMounted(() => {
         </p>
         <div
             class="mt-8 md:mt-12 lg:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-start items-stretch md:gap-x-8 lg:gap-x-16 gap-y-4 md:gap-y-8">
-            <UtilThemeOption v-for="{ option, text } in themeOptions" :option="option" :text="text" key="option" />
+            <UtilThemeOption v-for="{ option, text } in themeOptions" :option="option" :text="text" key="option"
+                :mouse-position="mousePosition" />
         </div>
         <footer class="mt-16 ff-righteous text-3xl">
             Find your way through my work, your way
