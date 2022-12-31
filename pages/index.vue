@@ -55,7 +55,7 @@ onMounted(() => {
 
 
 <template>
-    <div class="introduction min-h-screen text-white px-4 py-6 md:py-12 lg:py-16">
+    <div class="introduction min-h-screen text-white px-4 md:px-6 lg:px-8 py-6 md:py-12 lg:py-16">
         <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold ff-righteous">Hi, I'm Nethsara!</h1>
         <p class="mt-8 md:text-xl lg:text-2xl">So, you want to know about me ?
             <br>

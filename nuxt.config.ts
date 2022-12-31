@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   modules: [
     "@nuxtjs/html-validator",
-    "@nuxtjs/web-vitals",
+    // "@nuxtjs/web-vitals",
     "@nuxtjs/google-fonts",
     "nuxt-schema-org",
     "@nuxt/image-edge",
@@ -61,5 +61,7 @@ export default defineNuxtConfig({
       brotli: true,
       gzip: true,
     },
+
+    preset: "cloudflare-pages",
   },
 });
