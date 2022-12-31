@@ -54,7 +54,20 @@ export default defineNuxtConfig({
 
   css: ["@/assets/scss/main.scss"],
 
-  app: {},
+  app: {
+    head: {
+      link: [
+        {
+          rel: "icon",
+          href: "/favicon.svg",
+        },
+      ],
+      title: "Portfolio | Nethsara",
+      htmlAttrs: {
+        lang: "en",
+      },
+    },
+  },
 
   nitro: {
     compressPublicAssets: {

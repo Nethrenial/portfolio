@@ -6,12 +6,6 @@ definePageMeta({
     layout: 'landing',
 })
 
-useHead({
-    title: 'Nethsara',
-    htmlAttrs: {
-        lang: 'en'
-    }
-})
 
 
 const themeOptions: (Partial<ThemeOptionProps> & { option: string, text: string })[] = [
@@ -69,7 +63,7 @@ onMounted(() => {
         <footer class="mt-16 ff-righteous text-3xl">
             Find your way through my work, your way
         </footer>
-        <div class="light" ref="lightEl"></div>
+        <div class="light absolute w-[1px] h-[1px] bg-transparent" ref="lightEl"></div>
     </div>
 </template>
 
@@ -83,10 +77,6 @@ onMounted(() => {
 }
 
 .light {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    background-color: transparent;
     box-shadow: 0 0 200px 200px rgba(200, 100, 255, 0.5);
 }
 </style>
