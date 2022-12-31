@@ -23,7 +23,12 @@ export default defineNuxtConfig({
     },
 
     rules: [],
-    safelist: ["hover:bg-[rgba(var(--light),0.06)]"],
+    safelist: [
+      "hover:bg-[rgba(var(--light),0.06)]",
+      "text-[1.25rem]",
+      "md:text-[1.5rem]",
+      "lg:text-[1.75rem]",
+    ],
     theme: {
       screens: {
         xs: "384px",
