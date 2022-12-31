@@ -1,0 +1,8 @@
+:root {
+  --dark-background: 23, 19, 33;
+  --light: 254, 254, 254;
+  --color-dark-background: rgb(var(--dark-background));
+  --color-light: rgb(var(--light));
+}
+
+$dark-background: var(--color-dark-background);

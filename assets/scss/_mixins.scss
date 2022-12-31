@@ -1,0 +1,65 @@
+//  Define a scss mixin named @xl-container
+//  This mixin will create a container with a max-width of 1140px
+//  and a padding of 15px
+//  This mixin will be used in the _layout.scss file
+//  to create a container for the main content of the page
+//  and the footer
+// ============================================================
+@mixin xl-container() {
+  width: 100%;
+  margin: 0 auto;
+
+  @media screen and (min-width: 1200px) {
+    max-width: 1140px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1360px;
+  }
+}
+
+@mixin xxl-container() {
+  width: 100%;
+  margin: 0 auto;
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1360px;
+  }
+}
+
+// Media queries mixin
+@mixin mq($breakpoint) {
+  @if $breakpoint == xs {
+    @media only screen and (min-width: 384px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == sm {
+    @media only screen and (min-width: 576px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == md {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == lg {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  }
+  @if $breakpoint == xl {
+    @media only screen and (min-width: 1280px) {
+      @content;
+    }
+  }
+  @if $breakpoint == 2xl {
+    @media only screen and (min-width: 1536px) {
+      @content;
+    }
+  }
+}
