@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 
-import { ComponentPublicInstance } from 'vue'
+import type { ComponentPublicInstance } from 'vue'
 
 export interface ThemeOptionProps {
     option: "modern&creative" | "minimalist" | "traditional",
@@ -19,7 +19,7 @@ watch(() => props.mousePosition, (newVal) => {
     const mouseX = newVal.x
     const mouseY = newVal.y
     // if mouse is inside the card , add "hover:bg-[rgba(var(--light),0.1)]" class to the card
-    if (optionCard.value) {
+    if (optionCard.value && optionCard.value.$el) {
         const cardRect = optionCard.value.$el.getBoundingClientRect()
         if (mouseX > cardRect.left - 200 && mouseX < cardRect.right + 200 && mouseY > cardRect.top - 200 && mouseY < cardRect.bottom + 200) {
             optionCard.value.$el.classList.add('bg-[rgba(var(--light),0.06)]')

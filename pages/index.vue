@@ -7,7 +7,7 @@ definePageMeta({
 })
 
 useHead({
-    title: 'Nethsara | Home',
+    title: 'Nethsara',
     htmlAttrs: {
         lang: 'en'
     }
