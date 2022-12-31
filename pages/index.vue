@@ -54,8 +54,8 @@ onMounted(() => {
 <template>
     <div
         class="introduction min-h-screen flex flex-col justify-center text-white px-4 md:px-6 lg:px-8 py-6 md:py-12 lg:py-16">
-        <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold ff-righteous">Hi, I'm Nethsara!</h1>
-        <p class="mt-8 md:text-xl lg:text-2xl">So, you want to know about me ?
+        <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold ff-righteous z-50">Hi, I'm Nethsara!</h1>
+        <p class="mt-8 md:text-xl lg:text-2xl z-50">So, you want to know about me ?
             <br>
             But let me ask you one thing, Which of these phrases define you?
         </p>
@@ -64,7 +64,7 @@ onMounted(() => {
             <UtilThemeOption v-for="{ option, text } in themeOptions" :option="option" :text="text" key="option"
                 :mouse-position="mousePosition" />
         </div>
-        <footer class="mt-16 ff-righteous text-xl md:text-2xl lg:text-3xl text-center md:text-left">
+        <footer class="mt-16 ff-righteous text-xl md:text-2xl lg:text-3xl text-center md:text-left z-50">
             Find your way through my work, your way
         </footer>
         <div class="light absolute w-[1px] h-[1px] bg-transparent" ref="lightEl"></div>
