@@ -18,7 +18,8 @@ function startGameWorld() {
         <div v-show="!isGameScreenVisible"
             class="w-screen h-screen bg-[var(--color-dark-background)] flex-center flex-col gap-4">
             <h1 class="text-[var(--color-light)] text-4xl">Start the journy</h1>
-            <button @click="startGameWorld" class="bg-red-600 text-white px-4 py-2 rounded-md">Launch</button>
+            <button @click="startGameWorld" class="bg-red-600 text-white px-4 py-2 rounded-md"
+                type="button">Launch</button>
         </div>
         <div ref="gameScene" id="game-scene" class="h-screen w-screen absolute overflow-hidden"
             v-show="isGameScreenVisible">
