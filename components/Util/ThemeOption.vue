@@ -18,7 +18,6 @@ const optionCard = ref<ComponentPublicInstance | null>(null)
 watch(() => props.mousePosition, (newVal) => {
     const mouseX = newVal.x
     const mouseY = newVal.y
-    // if mouse is inside the card , add "hover:bg-[rgba(var(--light),0.1)]" class to the card
     if (optionCard.value && optionCard.value.$el) {
         const cardRect = optionCard.value.$el.getBoundingClientRect()
         if (mouseX > cardRect.left - 200 && mouseX < cardRect.right + 200 && mouseY > cardRect.top - 200 && mouseY < cardRect.bottom + 200) {
@@ -34,12 +33,10 @@ watch(() => props.mousePosition, (newVal) => {
 
 <template>
     <NuxtLink :to="{
-    path: '/home',
-    query: {
-        theme: props.option
-    }
+    path: `/${props.option === 'modern&creative' ? 'modern' : (props.option === 'minimalist' ? 'minimalist' : (props.option === 'traditional' ? 'traditional' : 'modern'))}/home`,
+
 }" ref="optionCard" rel="prefetch"
-        class="flex flex-col gap-8 items-center justify-center py-8 cursor-pointer transition-all duration-400 ease-in-out bg-[rgba(var(--light),0.02)] hover:bg-[rgba(var(--light),0.1)] hover:bg rounded-xl text-white">
+        class="flex flex-col gap-8 items-center justify-center py-8 cursor-pointer transition-all duration-400 ease-in-out bg-[rgba(var(--light),0.02)] hover:bg-[rgba(var(--light),0.15)] hover:bg rounded-xl text-white">
         <Icon name="mdi:lightbulb-on-outline" v-if="props.option === 'modern&creative'"
             class="text-7xl text-white z-50" />
         <Icon name="material-symbols:square-outline-rounded" v-if="props.option === 'minimalist'"

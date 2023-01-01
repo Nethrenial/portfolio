@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@nuxtjs/fontaine",
     "nuxt-icon",
     "@unocss/nuxt",
+    "@pinia/nuxt",
   ],
 
   unocss: {
