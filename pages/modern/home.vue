@@ -34,6 +34,9 @@ function startGameWorld() {
 @use "@/assets/scss/variables" as variables;
 
 #game-scene {
-    background-image: linear-gradient(#e4e0ba, #f7d9aa);
+    background-image: url(~/assets/images/backgrounds/starry-night.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 </style>

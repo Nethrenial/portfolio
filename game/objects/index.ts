@@ -1,17 +1,12 @@
 import { Scene } from "three";
+import { createFloor } from "./Floor";
+import { createSpaceship } from "./Spaceship";
 
-import { createSea } from "./Sea";
-import { createSky } from "./Sky";
-import { createAirPlane } from "./AirPlane";
-
-export function createObjects(scene: Scene) {
-  const sea = createSea(scene);
-  const sky = createSky(scene);
-  const airPlane = createAirPlane(scene);
-
+export async function createObjects(scene: Scene) {
+  const floor = createFloor(scene);
+  const spaceship = await createSpaceship(scene);
   return {
-    sea,
-    sky,
-    airPlane,
+    floor,
+    spaceship,
   };
 }

@@ -1,10 +1,15 @@
-import { Scene, Fog, PerspectiveCamera, WebGLRenderer } from "three";
+import {
+  Scene,
+  Fog,
+  PerspectiveCamera,
+  WebGLRenderer,
+  sRGBEncoding,
+} from "three";
 export function createScene(gameSceneElement: HTMLDivElement) {
   let height = window.innerHeight;
   let width = window.innerWidth;
 
   const scene = new Scene();
-  //   scene.fog = new Fog(0xf7d9aa, 100, 950);
 
   let aspectRatio = width / height;
   const fieldOfView = 60;
@@ -18,8 +23,8 @@ export function createScene(gameSceneElement: HTMLDivElement) {
     farPlane
   );
 
-  camera.position.x = 0;
-  camera.position.z = 200;
+  camera.position.x = 100;
+  camera.position.z = 300;
   camera.position.y = 100;
 
   const renderer = new WebGLRenderer({
@@ -28,6 +33,7 @@ export function createScene(gameSceneElement: HTMLDivElement) {
   });
 
   renderer.setSize(width, height);
+  renderer.outputEncoding = sRGBEncoding;
 
   // resize the canvas when the window is resized, to allow for responsive design
   window.addEventListener("resize", () => {

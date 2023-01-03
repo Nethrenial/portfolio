@@ -1,13 +1,9 @@
 import { createScene } from "./scenes";
 import { createLights } from "./lights";
 import { createObjects } from "./objects";
+import { createHelpers } from "./helpers";
 import { PerspectiveCamera, Scene, WebGLRenderer } from "three";
-import { updatePlane } from "./objects/AirPlane";
-
-const mousePosition = {
-  x: 0,
-  y: 0,
-};
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 /**
  * Initiate the game
@@ -15,36 +11,29 @@ const mousePosition = {
  */
 export function init(gameSceneElement: HTMLDivElement) {
   const { scene, renderer, camera } = createScene(gameSceneElement);
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.enablePan = true;
+  controls.enableRotate = true;
+  controls.enableZoom = true;
   createLights(scene);
-  const objects = createObjects(scene);
+  createObjects(scene);
+  createHelpers(scene);
 
-  document.addEventListener("mousemove", handleMouseMove, false);
-
-  gameLoop(objects, renderer, camera, scene);
+  gameLoop(renderer, camera, scene, controls);
 }
 
 // declare a function named gameLoop with an argument of type returned by the createObjects function
 function gameLoop(
-  objects: ReturnType<typeof createObjects>,
   renderer: WebGLRenderer,
   camera: PerspectiveCamera,
-  scene: Scene
+  scene: Scene,
+  controller: OrbitControls
 ) {
-  // update the sea and sky
-  objects.sea.mesh.rotation.z += 0.005;
-  objects.sky.mesh.rotation.z += 0.01;
-
-  updatePlane(mousePosition);
+  controller.update();
 
   // render the scene
   renderer.render(scene, camera);
   // call the gameLoop function again
-  requestAnimationFrame(() => gameLoop(objects, renderer, camera, scene));
-}
-
-function handleMouseMove(event: MouseEvent) {
-  const tx = -1 + (event.clientX / window.innerWidth) * 2;
-  const ty = 1 - (event.clientY / window.innerHeight) * 2;
-  mousePosition.x = tx;
-  mousePosition.y = ty;
+  requestAnimationFrame(() => gameLoop(renderer, camera, scene, controller));
 }

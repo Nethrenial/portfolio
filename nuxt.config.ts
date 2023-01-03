@@ -72,6 +72,13 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "en",
       },
+
+      meta: [
+        {
+          name: "description",
+          content: `"AJF-12 "Dvergr"" (https://skfb.ly/FMID) by Star Conflict is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).`,
+        },
+      ],
     },
   },
 

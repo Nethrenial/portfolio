@@ -1,4 +1,4 @@
-import { DirectionalLight, HemisphereLight, Scene } from "three";
+import { DirectionalLight, HemisphereLight, Scene, AmbientLight } from "three";
 
 export function createLights(scene: Scene) {
   const hemisphereLight = new HemisphereLight(0xaaaaaa, 0x000000, 0.9);
@@ -16,6 +16,10 @@ export function createLights(scene: Scene) {
   shadowLight.shadow.mapSize.width = 2048;
   shadowLight.shadow.mapSize.height = 2048;
 
+  const ambientLight = new AmbientLight(0xdc8874, 0.5);
+  ambientLight.position.set(0, 0, 0);
+
   scene.add(hemisphereLight);
   scene.add(shadowLight);
+  scene.add(ambientLight);
 }
